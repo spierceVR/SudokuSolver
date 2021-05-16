@@ -6,8 +6,6 @@
 #include <vector>
 #include <sstream>
 
-struct aGrid { std::vector<std::vector<int>> grid; };
-
 //io.cpp
 std::vector<std::vector<int>> getGrid(std::string name);
 
