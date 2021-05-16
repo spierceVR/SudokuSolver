@@ -6,6 +6,8 @@
 #include <vector>
 #include <sstream>
 
+struct aGrid { std::vector<std::vector<int>> grid; };
+
 //io.cpp
 std::vector<std::vector<int>> getGrid(std::string name);
 
@@ -18,4 +20,5 @@ bool isValidGuess(std::vector<std::vector<int>> grid, int guess, std::pair<int, 
 
 std::pair<int, int> findEmptySquare(std::vector<std::vector<int>> grid);
 
-bool solve(std::vector<std::vector<int>> grid);
+bool solve(std::vector<std::vector<int>> &grid);
+

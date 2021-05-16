@@ -15,22 +15,18 @@ std::pair<int, int> findEmptySquare(const std::vector<std::vector<int>> grid) {
 
 //is this number allowed in this position
 bool isValidGuess(const std::vector<std::vector<int>> grid, const int guess, const std::pair<int,int> pos) {
-	//check for duplicate number in column
+	//check for duplicate number in column or row
 	int yPos = pos.second;
 	int xPos = pos.first;
-	for (int y = 0; y < grid.size(); y++)
+	for (int n = 0; n < grid.size(); n++)
 	{
-		if (grid[y][xPos] == guess) {
+		if (grid[n][xPos] == guess) {
+			return false;
+		}
+		if (grid[yPos][n] == guess) {
 			return false;
 		}
 
-	}
-	//check for duplicate number in row
-	for (int x = 0; x < grid.size(); x++)
-	{
-		if (grid[yPos][x] == guess) {
-			return false;
-		}
 	}
 //check for duplicate number in 3x3 square
 
@@ -51,7 +47,7 @@ bool isValidGuess(const std::vector<std::vector<int>> grid, const int guess, con
 	return true;
 }
 
-bool solve(std::vector<std::vector<int>> grid){
+bool solve(std::vector<std::vector<int>> &grid){
 	if (findEmptySquare(grid) == std::make_pair(-1, 0)) {
 		printGrid(grid);
 		return true;
